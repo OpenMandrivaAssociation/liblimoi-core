@@ -1,5 +1,6 @@
 %define	major	0
 %define	oname	limoi-core
+%define	libname	%mklibname %{oname} %{major}
 %define	devname	%mklibname -d %{oname}
 
 Summary:	LIM OpenMAX Integration Layer core library
@@ -10,7 +11,6 @@ Group:		System/Libraries
 License:	LGPLv2.1+
 Url:		http://limoa.sourceforge.net/
 Source0:	%{name}-%{version}.tar.xz
-Patch0:		liblimutil-0.1.2-add-missing-pthread-linkage.patch
 
 %description
 LIM OpenMAX Integration Layer core library
@@ -20,6 +20,7 @@ LIM OpenMAX Integration Layer core library
 %package -n	%{devname}
 Summary:	Development headers for OpenMAX LIM utility library
 Group:		Development/C
+Requires:	%{libname} = %{EVRD}
 
 %description -n	%{devname}
 Development headers for OpenMAX LIM utility library.
